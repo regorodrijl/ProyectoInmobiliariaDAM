@@ -1,0 +1,60 @@
+ALTER TABLE login 
+ADD CONSTRAINT fk_login
+    FOREIGN KEY (idPersonaEmplado) 
+	REFERENCES persona (idPersona) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE inmueble 
+ADD CONSTRAINT fk_inmueble
+    FOREIGN KEY (idPersonaPropietario) 
+	REFERENCES persona (idPersona) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE visita 
+ADD CONSTRAINT fk_visita_inmueble
+    FOREIGN KEY (idInmueble) 
+	REFERENCES inmueble (idInmueble) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE visita 
+ADD CONSTRAINT fk_visita_idPersonaEmpleado
+    FOREIGN KEY (idPersonaEmpleado) 
+	REFERENCES persona (idPersona) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE visita 
+ADD CONSTRAINT fk_visita_idPersonaCliente
+    FOREIGN KEY (idPersonaCliente) 
+	REFERENCES persona (idPersona) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+
+
+ALTER TABLE alquilacompra 
+ADD CONSTRAINT fk_alquilacompra_idPersonaCliente
+    FOREIGN KEY (idPersonaCliente) 
+	REFERENCES persona (idPersona) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE alquilacompra 
+ADD CONSTRAINT fk_alquilacompra_idPersonaEmpleado
+    FOREIGN KEY (idPersonaEmpleado) 
+	REFERENCES persona (idPersona) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE alquilacompra 
+ADD CONSTRAINT fk_alquilacompra_idInmueble
+    FOREIGN KEY (idInmueble) 
+	REFERENCES inmueble (idInmueble) 
+ ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+
+
